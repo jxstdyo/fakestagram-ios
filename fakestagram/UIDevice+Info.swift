@@ -28,6 +28,7 @@ public extension UIDevice {
         }
         
         func mapToDevice(identifier: String) -> String { // swiftlint:disable:this cyclomatic_complexity
+            print(identifier)
             #if os(iOS)
             switch identifier {
             case "iPod5,1":                                 return "iPod Touch 5"

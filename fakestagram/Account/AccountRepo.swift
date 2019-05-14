@@ -8,21 +8,23 @@
 
 import Foundation
 
+let KEY_ID = "uuidKey"
 class AccountRepo {
     static let shared = AccountRepo()
     let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
     
     typealias accountResponse = (Account) -> Void
-    func loadOrCreate(success: accountResponse?) {
+    func loadOrCreate(success: @escaping accountResponse) {
         if let account = load() {
-            success?(account)
+            //UserDefaults.standard.set(account.id, forKey: KEY_ID)
+            success(account)
             return
         }
         let newAccount = Account.initialize()
         create(newAccount) { account in
             AccountStorage.shared.item = account
-            AccountStorage.shared.save()
-            success?(account)
+            _ = AccountStorage.shared.save()
+            success(account)
         }
     }
 

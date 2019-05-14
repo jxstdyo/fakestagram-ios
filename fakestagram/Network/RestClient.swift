@@ -33,6 +33,10 @@ class RestClient<T> where T: Codable {
         request("POST", path: "\(path)", payload: codable, success: success, errorHandler: nil)
     }
 
+    func create(success: @escaping codableResponse) {
+        request("POST", path: "\(path)", payload: nil, success: success, errorHandler: nil)
+    }
+    
     func update(id: Int, codable: T, success: @escaping codableResponse) {
         update(id: "\(id)", codable: codable, success: success)
     }
@@ -47,17 +51,34 @@ class RestClient<T> where T: Codable {
         request("DELETE", path: "\(path)/\(id)", payload: nil, success: success, errorHandler: nil)
     }
     
-    private func request(_ method: String, path: String, payload: T?, success: @escaping codableResponse, errorHandler: errorHandler?) {
+    func request(_ method: String, path: String, payload: T?, success: @escaping codableResponse, errorHandler: errorHandler?) {
+        request(method, path: path, queryItems : nil, payload: payload, success: success, errorHandler: errorHandler)
+    }
+    
+    func request(_ method: String, path: String, queryItems : [String:String]?, payload: T?, success: @escaping codableResponse, errorHandler: errorHandler?) {
         let data = encode(payload: payload)
-        client.request(method, path: path, body: data, completionHandler: { (response, data) in
+        client.request(method, path: path, body: data, queryItems: queryItems, completionHandler: { (response, data) in
             guard response.successful() else { return }
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do {
                 guard let data = data else { print("Empty response"); return }
+                
+                //let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                
                 let json = try decoder.decode(T.self, from: data)
-                print("===================================================================")
                 success(json)
+            } catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
             } catch let err {
                 print("Unable to parse successfull response: \(err.localizedDescription)")
                 errorHandler?(err)

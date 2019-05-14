@@ -17,7 +17,6 @@ struct Identicon {
         urlComponents.host = "cutenizer.herokuapp.com"
         urlComponents.path = "/identicon.svg"
         urlComponents.queryItems = [URLQueryItem(name: "key", value: self.key)]
-        
         return urlComponents.url
     }
 }

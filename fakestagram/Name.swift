@@ -16,6 +16,7 @@ struct Names {
     
     static func load() -> Names {
         let filePath = Bundle.main.path(forResource: "Names", ofType: "plist")!
+        //Par aun plist se usa NSDictionary
         let namesDic = NSDictionary(contentsOfFile: filePath)!["names"]! as! NSDictionary
         
         let maleFirstNames = namesDic["male_first_name"] as! [String]

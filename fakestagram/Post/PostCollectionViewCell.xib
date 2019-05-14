@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,19 +26,23 @@
                             <constraint firstAttribute="height" constant="64" id="doV-8f-0Xf"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-9H-BNz">
                         <rect key="frame" x="0.0" y="74" width="355" height="355"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="B7R-9H-BNz" secondAttribute="height" multiplier="1:1" id="y3W-Xh-VPN"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-mz-Uik">
-                        <rect key="frame" x="5" y="430.5" width="30" height="30"/>
-                        <state key="normal" title="Like"/>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-mz-Uik">
+                        <rect key="frame" x="5" y="437" width="30" height="30"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <action selector="tapLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LaU-sZ-Hsa"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-BQ-2kR">
-                        <rect key="frame" x="40" y="430.5" width="67" height="30"/>
-                        <state key="normal" title="Comment"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REL-BQ-2kR">
+                        <rect key="frame" x="40" y="437" width="30" height="30"/>
+                        <state key="normal" image="sms"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1213 Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfa-mc-RD9">
                         <rect key="frame" x="265" y="437.5" width="85" height="21"/>
@@ -47,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="#hikingTrails said lorem ipsum dolor quet sit ammet consectetur adipsum elit eit lorem..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCK-8L-B25">
-                        <rect key="frame" x="5" y="461" width="345" height="48"/>
+                        <rect key="frame" x="5" y="464.5" width="345" height="48"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="nmb-NQ-CB1"/>
                         </constraints>
@@ -69,7 +73,7 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="6eL-f4-RSw" secondAttribute="bottom" constant="5" id="4Go-8R-VVV"/>
-                <constraint firstItem="2G7-mz-Uik" firstAttribute="firstBaseline" secondItem="B7R-9H-BNz" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="6Go-8K-KwY"/>
+                <constraint firstItem="2G7-mz-Uik" firstAttribute="firstBaseline" secondItem="B7R-9H-BNz" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="6Go-8K-KwY"/>
                 <constraint firstItem="UCK-8L-B25" firstAttribute="firstBaseline" secondItem="2G7-mz-Uik" secondAttribute="baseline" constant="10" id="8cj-Df-jnf"/>
                 <constraint firstItem="2G7-mz-Uik" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Aax-9p-dfJ"/>
                 <constraint firstItem="B7R-9H-BNz" firstAttribute="top" secondItem="Sni-u6-baQ" secondAttribute="bottom" constant="5" id="AiR-GR-cG0"/>
@@ -82,7 +86,7 @@
                 <constraint firstAttribute="trailing" secondItem="B7R-9H-BNz" secondAttribute="trailing" id="TG7-0u-ekR"/>
                 <constraint firstAttribute="trailing" secondItem="UCK-8L-B25" secondAttribute="trailing" constant="5" id="TMO-0A-YmH"/>
                 <constraint firstItem="UCK-8L-B25" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Uir-q5-aMs"/>
-                <constraint firstItem="REL-BQ-2kR" firstAttribute="firstBaseline" secondItem="B7R-9H-BNz" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="XAA-5J-Lgb"/>
+                <constraint firstItem="REL-BQ-2kR" firstAttribute="firstBaseline" secondItem="B7R-9H-BNz" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="XAA-5J-Lgb"/>
                 <constraint firstItem="B7R-9H-BNz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y5K-Y2-CgD"/>
                 <constraint firstAttribute="trailing" secondItem="Sni-u6-baQ" secondAttribute="trailing" constant="5" id="deS-me-IBd"/>
                 <constraint firstItem="Sni-u6-baQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="fE2-Tx-V6n"/>
@@ -90,7 +94,18 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="567"/>
+            <connections>
+                <outlet property="autor" destination="Sni-u6-baQ" id="r4l-Nw-svs"/>
+                <outlet property="descripcion" destination="UCK-8L-B25" id="uHa-T9-Y0q"/>
+                <outlet property="imagen" destination="B7R-9H-BNz" id="Wyj-2w-gDN"/>
+                <outlet property="isLike" destination="2G7-mz-Uik" id="opy-sY-1t9"/>
+                <outlet property="totalComment" destination="00E-Fs-pbe" id="iHO-ja-pWc"/>
+                <outlet property="totalLikes" destination="lfa-mc-RD9" id="TVI-uy-FdY"/>
+            </connections>
             <point key="canvasLocation" x="375.19999999999999" y="385.90704647676165"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="sms" width="30" height="30"/>
+    </resources>
 </document>

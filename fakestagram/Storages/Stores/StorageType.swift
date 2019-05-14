@@ -19,24 +19,28 @@ enum StorageType {
         }
     }
     
-    var folder: URL {
+    var url: URL {
         var url = FileManager.default.urls(for: searchPathDirectory, in: .userDomainMask).first!
         let subfolder = "com.3zcurdia.fakestagram.storage"
         url.appendPathComponent(subfolder)
         return url
     }
     
+    var path: String{
+        return url.path
+    }
+    
     func clearStorage() {
-        try? FileManager.default.removeItem(at: folder)
+        try? FileManager.default.removeItem(at: url)
     }
     
     func ensureExists() {
         let fileManager = FileManager.default
         var isDir: ObjCBool = false
-        if fileManager.fileExists(atPath: folder.path, isDirectory: &isDir) {
+        if fileManager.fileExists(atPath: path, isDirectory: &isDir) {
             if isDir.boolValue { return }
-            try? fileManager.removeItem(at: folder)
+            try? fileManager.removeItem(at: url)
         }
-        try? fileManager.createDirectory(at: folder, withIntermediateDirectories: false, attributes: nil)
+        try? fileManager.createDirectory(at: url, withIntermediateDirectories: false, attributes: nil)
     }
 }
