@@ -43,15 +43,12 @@ struct Client {
         if let token = Secrets.token.value {
             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
                 errorHandler?(error)
                 return
             }
             let response = HTTPResponse(reponse: response as! HTTPURLResponse)
-            //let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            //print("responseString [\(responseString)]")
             DispatchQueue.main.async {
                 completionHandler?(response, data)
             }

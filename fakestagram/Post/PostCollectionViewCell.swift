@@ -22,9 +22,9 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var totalLikes: UILabel!
     @IBOutlet weak var imagen: UIImageView!
     @IBOutlet weak var descripcion: UITextView!
-    @IBOutlet weak var totalComment: UILabel!
     @IBOutlet weak var autor: PostAuthorView!
     @IBOutlet weak var isLike: UIButton!
+    @IBOutlet weak var comments: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,8 +44,13 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         autor.author = post.author
         totalLikes.text = "\(post.likesCount) Me gusta"
-        descripcion.text = post.title
-        totalComment.text = "\(post.commentsCount) comentarios"
+        descripcion.text = ""
+        if post.location.count > 0{
+            descripcion.text = "\(post.location)\n"
+        }
+        descripcion.text = "\(descripcion.text!)\(post.title)"
+        comments.setTitle("\(post.commentsCount) comentarios", for: .normal)
+
         if post.liked {
             isLike.isSelected = false
         } else {
@@ -59,6 +64,35 @@ class PostCollectionViewCell: UICollectionViewCell {
         self.post = client.call()
         updateContet()
     }
+
+    @IBAction func showComments(_ sender: Any) {
+        guard let post = self.post else { return }
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let commentsVC = storyBoard.instantiateViewController(withIdentifier: "commentCollectionView") as! CommentsViewController
+        commentsVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        if let id = post.id{
+            commentsVC.postId = id
+        }
+        self.window?.rootViewController?.present(commentsVC, animated: true, completion: nil)
+        
+    }
     
+    
+    @IBAction func addComment(_ sender: Any) {
+        if let root = self.window?.rootViewController{
+            UIAlert.show(showIn: root, title: "Ingrese el Comentario", placeholder: "<Ingrese el Comentario>") { (comment) in
+                guard let post = self.post else { return }
+                if let id = post.id{
+                    let client = CommentCreateClient(postID: id);
+                    let comm = Comment(id: nil, content: comment, author: nil, createdAt: nil, updatedAt: nil)
+                    client.create(codable: comm, success: { (result) in
+                        guard let data = try? JSONEncoder().encode(self.post) else { return }
+                        NotificationCenter.default.post(name: .didCommentPost, object: nil, userInfo: ["post": data as Any] )
+                    })
+                }
+                
+            }
+        }
+    }
     
 }

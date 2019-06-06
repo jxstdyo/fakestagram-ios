@@ -22,16 +22,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
         clientProfile.show { (author) in
             self.autor.author = author
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         clientProfilePosts.show { (posts) in
             self.posts = posts
             self.postsProfile.reloadData()
         }
-        
     }
     
     func setupUI(){
@@ -46,7 +47,7 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController :
     UICollectionViewDelegate,
     UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout{
+    UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -58,7 +59,7 @@ UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as! ProfileCollectionViewCell
-        self.posts[indexPath.row].load { [weak self] (imagen) in
+        self.posts[indexPath.row].load { (imagen) in
             DispatchQueue.main.async {
                 cell.imageTumbs.image = imagen
             }

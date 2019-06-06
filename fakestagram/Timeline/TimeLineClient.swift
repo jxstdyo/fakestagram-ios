@@ -16,6 +16,11 @@ class TimeLineClient : RestClient<[Post]>{
         let items = ["page" : "\(page)"]
         request("GET", path: "\(path)", queryItems : items, payload: nil, success: success, errorHandler: nil)
     }
-    
+}
+
+class TimePostClient:  RestClient<Post>{
+    convenience init(postID : Int){
+        self.init(client : Client(), path : "/api/posts/\(postID)")
+    }
 }
 

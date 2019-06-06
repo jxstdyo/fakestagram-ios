@@ -24,6 +24,7 @@ class TimelineViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         NotificationCenter.default.addObserver(self, selector: #selector(didLikePost(_:)), name: .didLikePost, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didCommentPost(_:)), name: .didCommentPost, object: nil)
         refreshControl.addTarget(self, action: #selector(self.reloadData), for: UIControl.Event.valueChanged)
         client.show { [weak self] data in
             self?.posts = data
@@ -59,6 +60,23 @@ class TimelineViewController: UIViewController {
               let json = try? JSONDecoder().decode(Post.self, from: data) else { return }
         if let row = json.row {
             self.posts[row] = json
+        }
+    }
+    
+    @objc func didCommentPost(_ notification : NSNotification){
+        guard let userInfo = notification.userInfo,
+            let data = userInfo["post"] as? Data,
+            let json = try? JSONDecoder().decode(Post.self, from: data) else { return }
+        
+        if let row = json.row {
+            if let id = json.id{
+                let clientPost = TimePostClient(postID: id)
+                clientPost.show { (post) in
+                    self.posts[row] = post
+                    self.postsCollectionView.reloadData()
+                }
+                
+            }
         }
     }
     
@@ -104,6 +122,7 @@ extension TimelineViewController :
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postViewCell", for: indexPath) as! PostCollectionViewCell
         cell.post = self.posts[indexPath.row]
         cell.post.row = indexPath.row
+        cell.backgroundColor = UIColor.Flat.Gray.Iron
         return cell
     }
     

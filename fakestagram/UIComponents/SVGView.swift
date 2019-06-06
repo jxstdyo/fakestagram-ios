@@ -16,7 +16,6 @@ class SVGView: UIView, WKNavigationDelegate {
         wkv.scrollView.scrollsToTop = false
         wkv.scrollView.showsVerticalScrollIndicator = false
         wkv.scrollView.showsHorizontalScrollIndicator = false
-        wkv.scrollView.isScrollEnabled = false
         wkv.translatesAutoresizingMaskIntoConstraints = false
         return wkv
     }()
