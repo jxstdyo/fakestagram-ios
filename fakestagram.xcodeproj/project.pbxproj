@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,14 @@
 		895EE6B72273CD7800FF7F5B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895EE6B62273CD7700FF7F5B /* ImageCache.swift */; };
 		8963E4EF2259314300338786 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963E4EE2259314300338786 /* UIView+constraints.swift */; };
 		8963E4F12259315C00338786 /* UIColor+flatcolors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963E4F02259315C00338786 /* UIColor+flatcolors.swift */; };
-		8979D829228F391C00EAEA24 /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8979D828228F391C00EAEA24 /* UIAlert.swift */; };
+		8966FF5B22A8AE6200DCCA55 /* UIViewController+swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF5922A8AE6200DCCA55 /* UIViewController+swipe.swift */; };
+		8966FF5C22A8AE6200DCCA55 /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF5A22A8AE6200DCCA55 /* UIAlert.swift */; };
+		8966FF6622A8AF0800DCCA55 /* HeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF6022A8AF0800DCCA55 /* HeaderSupplementaryView.swift */; };
+		8966FF6722A8AF0800DCCA55 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF6122A8AF0800DCCA55 /* CommentCollectionViewCell.swift */; };
+		8966FF6822A8AF0800DCCA55 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8966FF6222A8AF0800DCCA55 /* CommentCollectionViewCell.xib */; };
+		8966FF6922A8AF0800DCCA55 /* CommentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF6322A8AF0800DCCA55 /* CommentClient.swift */; };
+		8966FF6A22A8AF0800DCCA55 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF6422A8AF0800DCCA55 /* Comment.swift */; };
+		8966FF6B22A8AF0800DCCA55 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966FF6522A8AF0800DCCA55 /* CommentsViewController.swift */; };
 		89B9D40B2274A2D300673E51 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B9D40A2274A2D300673E51 /* CameraViewController.swift */; };
 		89BFC734228FB53C00CB74F6 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BFC733228FB53C00CB74F6 /* ProfileCollectionViewCell.swift */; };
 		89E8B2422273DE4D00A56613 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8B2412273DE4D00A56613 /* AccountClient.swift */; };
@@ -85,7 +92,14 @@
 		895EE6B62273CD7700FF7F5B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8963E4EE2259314300338786 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
 		8963E4F02259315C00338786 /* UIColor+flatcolors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+flatcolors.swift"; sourceTree = "<group>"; };
-		8979D828228F391C00EAEA24 /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
+		8966FF5922A8AE6200DCCA55 /* UIViewController+swipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+swipe.swift"; sourceTree = "<group>"; };
+		8966FF5A22A8AE6200DCCA55 /* UIAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
+		8966FF6022A8AF0800DCCA55 /* HeaderSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		8966FF6122A8AF0800DCCA55 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		8966FF6222A8AF0800DCCA55 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
+		8966FF6322A8AF0800DCCA55 /* CommentClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentClient.swift; sourceTree = "<group>"; };
+		8966FF6422A8AF0800DCCA55 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		8966FF6522A8AF0800DCCA55 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		89B9D40A2274A2D300673E51 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		89BFC733228FB53C00CB74F6 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E8B2412273DE4D00A56613 /* AccountClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
@@ -182,6 +196,19 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		8966FF5F22A8AECF00DCCA55 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				8966FF6422A8AF0800DCCA55 /* Comment.swift */,
+				8966FF6322A8AF0800DCCA55 /* CommentClient.swift */,
+				8966FF6122A8AF0800DCCA55 /* CommentCollectionViewCell.swift */,
+				8966FF6222A8AF0800DCCA55 /* CommentCollectionViewCell.xib */,
+				8966FF6522A8AF0800DCCA55 /* CommentsViewController.swift */,
+				8966FF6022A8AF0800DCCA55 /* HeaderSupplementaryView.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		89B9D4092274A2BE00673E51 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +284,7 @@
 		E0DDF9EF223DF640009EB136 /* fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				8966FF5F22A8AECF00DCCA55 /* Comments */,
 				8919949E227DF52800BF3C82 /* Profile */,
 				89B9D4092274A2BE00673E51 /* Camera */,
 				E0BB974B223F45DE00D028A1 /* Account */,
@@ -280,7 +308,6 @@
 				8963E4F02259315C00338786 /* UIColor+flatcolors.swift */,
 				8914BB762274AEDE002BD2B1 /* UIImage+Encode.swift */,
 				895CB2C4227CEDE5001272A7 /* Notification.Name.swift */,
-				8979D828228F391C00EAEA24 /* UIAlert.swift */,
 			);
 			path = fakestagram;
 			sourceTree = "<group>";
@@ -315,6 +342,8 @@
 		E0DDFA23223DFFDB009EB136 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				8966FF5A22A8AE6200DCCA55 /* UIAlert.swift */,
+				8966FF5922A8AE6200DCCA55 /* UIViewController+swipe.swift */,
 				E0DDFA24223E0017009EB136 /* SVGView.swift */,
 			);
 			path = UIComponents;
@@ -420,6 +449,7 @@
 				E0DDF9FB223DF642009EB136 /* LaunchScreen.storyboard in Resources */,
 				E0DDFA32223E181C009EB136 /* PostDetailViewController.xib in Resources */,
 				E0DDF9F8223DF642009EB136 /* Assets.xcassets in Resources */,
+				8966FF6822A8AF0800DCCA55 /* CommentCollectionViewCell.xib in Resources */,
 				E0DDF9F6223DF640009EB136 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,12 +533,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8919949D227DDFF100BF3C82 /* TimeLineClient.swift in Sources */,
+				8966FF6A22A8AF0800DCCA55 /* Comment.swift in Sources */,
 				E0DDFA29223E03DC009EB136 /* Author.swift in Sources */,
-				8979D829228F391C00EAEA24 /* UIAlert.swift in Sources */,
+				8966FF5C22A8AE6200DCCA55 /* UIAlert.swift in Sources */,
 				8914BB772274AEDE002BD2B1 /* UIImage+Encode.swift in Sources */,
 				E0DDFA2B223E04A3009EB136 /* Identicon.swift in Sources */,
 				891994A2227DF61B00BF3C82 /* ProfileClient.swift in Sources */,
 				8963E4F12259315C00338786 /* UIColor+flatcolors.swift in Sources */,
+				8966FF6722A8AF0800DCCA55 /* CommentCollectionViewCell.swift in Sources */,
+				8966FF6922A8AF0800DCCA55 /* CommentClient.swift in Sources */,
 				E0BB974F223F552B00D028A1 /* UIDevice+Info.swift in Sources */,
 				89E8B2462273DF4500A56613 /* Like.swift in Sources */,
 				E0BCD23922489DFB00B4E0F6 /* Status.swift in Sources */,
@@ -527,9 +560,11 @@
 				E0BCD23D2248A14300B4E0F6 /* RestClient.swift in Sources */,
 				89E8B2482273E73A00A56613 /* LikeUpdaterClient.swift in Sources */,
 				895EE6B32273C39900FF7F5B /* ImageStorage.swift in Sources */,
+				8966FF5B22A8AE6200DCCA55 /* UIViewController+swipe.swift in Sources */,
 				E04FB2E02249F42A00B81C8A /* ItemStorage.swift in Sources */,
 				E0DDFA18223DFCC8009EB136 /* Post.swift in Sources */,
 				E0DDFA2E223E0EF2009EB136 /* TimelineViewController.swift in Sources */,
+				8966FF6622A8AF0800DCCA55 /* HeaderSupplementaryView.swift in Sources */,
 				89E8B2422273DE4D00A56613 /* AccountClient.swift in Sources */,
 				E0BB9755223F5EDA00D028A1 /* Name.swift in Sources */,
 				E0DDF9F1223DF640009EB136 /* AppDelegate.swift in Sources */,
@@ -541,6 +576,7 @@
 				8963E4EF2259314300338786 /* UIView+constraints.swift in Sources */,
 				E0BB9751223F57C400D028A1 /* Date+timestamp.swift in Sources */,
 				894B4DCE2274BE07004695F6 /* CreatePostClient.swift in Sources */,
+				8966FF6B22A8AF0800DCCA55 /* CommentsViewController.swift in Sources */,
 				E0BB974A223F449700D028A1 /* Secrets.swift in Sources */,
 				E0BB9757223F6A3500D028A1 /* AccountRepo.swift in Sources */,
 				895EE6B72273CD7800FF7F5B /* ImageCache.swift in Sources */,
